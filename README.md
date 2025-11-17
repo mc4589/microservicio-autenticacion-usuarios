@@ -30,23 +30,6 @@ Implementar un sistema de autenticación basado en tokens utilizando **Laravel S
 
 ---
 
-### Estructura final de la tabla `users`
-
-```sql
-id              bigint unsigned AUTO_INCREMENT PRIMARY KEY
-nombre          varchar(255)
-email           varchar(255) UNIQUE
-password        varchar(255)
-perfil          enum('administrador','editor','usuario') DEFAULT 'usuario'
-remember_token  varchar(100) NULL
-created_at      timestamp NULL
-updated_at      timestamp NULL
-
-
----
-
-
-
 ##Endpoints Implementados
 
 POST
@@ -63,7 +46,11 @@ GET
 /api/user
 (sin cuerpo)
 Authorization: Bearer <token>
-Devuelve datos del usuario autenticado + su perfil
+Devuelve datos del usuario autenticado
+id              bigint unsigned AUTO_INCREMENT PRIMARY KEY
+nombre          varchar(255)
+email           varchar(255) UNIQUE
+password + su perfil
 POST
 /api/logout
 (sin cuerpo)
