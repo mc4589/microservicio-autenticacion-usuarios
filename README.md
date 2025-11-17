@@ -5,9 +5,9 @@
 
 **Integrantes del grupo:**
 1. Sandy Mariño  
-2. Jonathan Hernández  
-3. Marco Chacón  
-4. Carlos Fernández
+2. Carlos Fernández  
+3. Jonathan Hernández
+4. Marco Chacón
 5. Carlos Cantuña  
 6. Sergio Condo
 
