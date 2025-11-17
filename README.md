@@ -30,7 +30,7 @@ Implementar un sistema de autenticación basado en tokens utilizando **Laravel S
 
 ---
 
-##Endpoints Implementados
+### Endpoints Implementados
 
 POST
 /api/register
@@ -57,7 +57,9 @@ POST
 Authorization: Bearer <token>
 Revoca todos los tokens del usuario autenticado
 
-##Flujo Completo de Autenticación
+---
+
+### Flujo Completo de Autenticación
 El flujo de trabajo diseñado es el siguiente:
 **Registro o inicio de sesión:** El cliente envía las credenciales a las rutas públicas /register o /login.  
 **Validación y generación de token:** El controlador verifica los datos, crea o recupera el usuario y genera un token con $user->createToken('auth_token')->plainTextToken.  
