@@ -9,7 +9,8 @@
 3. Marco Chacón  
 4. Carlos Fernández
 5. Carlos Cantuña  
-6. Jonathan Hernández  
+6. Sergio Condo
+
 
 
 ---
