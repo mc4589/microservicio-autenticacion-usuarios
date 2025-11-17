@@ -42,7 +42,11 @@ remember_token  varchar(100) NULL
 created_at      timestamp NULL
 updated_at      timestamp NULL
 
+
 ---
+
+
+
 ##Endpoints Implementados
 
 POST
