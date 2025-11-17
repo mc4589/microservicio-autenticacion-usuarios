@@ -42,11 +42,9 @@ remember_token  varchar(100) NULL
 created_at      timestamp NULL
 updated_at      timestamp NULL
 
-Endpoints ImplementadosMétodo
-URL
-Cuerpo (x-www-form-urlencoded)
-Header Requerido
-Descripción
+---
+##Endpoints Implementados
+
 POST
 /api/register
 nombre, email, password, password_confirmation, perfil (opcional)
