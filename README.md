@@ -78,9 +78,7 @@ ClaveModelo del usuario → app/Models/User.php
 Controlador de autenticación → app/Http/Controllers/Api/UserController.php  
 Definición de rutas API → routes/api.php  
 Migración base de usuarios → database/migrations/2014_10_12_000000_create_users_table.php  
-Migración que agrega el campo perfil → database/migrations/*_add_perfil_to_users_table.php  
-Migración de personalización (renombrado y eliminación de columnas) → database/migrations/*_modify_users_table_*.php  
-Configuración de Sanctum → config/sanctum.php y registro en app/Http/Kernel.php
+Migración que agrega el campo perfil → database/migrations/*_create_perfil_table.php  
 
 ---
 
@@ -97,8 +95,11 @@ Logout → todos los tokens revocados correctamente
 ### Conclusiones
 
 Se implementó exitosamente un microservicio de autenticación seguro, escalable y completamente funcional.
+
 El sistema permite diferenciar roles mediante el campo perfil, base para futuros middlewares de autorización.
+
 Todos los endpoints están protegidos con el estándar Bearer Token y cumplen con buenas prácticas REST.
+
 El proyecto está versionado, documentado y listo para ser consumido por cualquier otro microservicio del ecosistema.Este desarrollo sienta las bases sólidas para la arquitectura completa de microservicios del sistema, garantizando seguridad, mantenibilidad y escalabilidad.
 
 
