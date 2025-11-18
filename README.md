@@ -142,10 +142,15 @@ Logout → todos los tokens revocados correctamente
 ### Conclusiones
 
 Este microservicio permite:
+
 -Crear usuarios
+
 -Generar tokens de acceso
+
 -Validar tokens en otros microservicios
+
 -Gestionar sesiones con Sanctum
+
 -Asignar y verificar roles (perfil)
 
 Está diseñado para integrarse dentro de un sistema de microservicios, sirviendo únicamente como autoridad de autenticación.
