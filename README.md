@@ -18,6 +18,7 @@
 ### Objetivo
 Implementar un sistema de autenticación basado en tokens utilizando **Laravel Sanctum** en el microservicio de Gestión de Usuarios, permitiendo que otros microservicios validen solicitudes según el perfil del usuario:  
 `administrador` | `editor` | `usuario`
+Este microservicio será consumido por otros módulos del sistema para validar permisos y autenticar solicitudes.
 
 ---
 
@@ -30,12 +31,19 @@ Implementar un sistema de autenticación basado en tokens utilizando **Laravel S
 
 ---
 
-### Endpoints Implementados
+### Estructura Final de la Tabla `users`
 
-**POST:**
-/api/register
-nombre, email, password, password_confirmation, perfil (opcional)
-— Crea usuario y devuelve token inmediatamente
+Campo | Tipo | Descripción
+------|------|------------
+`id` | BIGINT UNSIGNED (PK) | Identificador del usuario
+`name` | VARCHAR(255) | Nombre del usuario
+`email` | VARCHAR(255) UNIQUE | Correo electrónico
+`email_verified_at` | TIMESTAMP NULL | Fecha de verificación
+`password` | VARCHAR(255) | Contraseña en hash
+`perfil` | ENUM('administrador','editor','usuario') DEFAULT 'usuario' | Rol del usuario
+`remember_token` | VARCHAR(100) NULL | Token de sesión
+`created_at` | TIMESTAMP NULL | Fecha de creación
+`updated_at` | TIMESTAMP NULL | Fecha de actualización
 
 
 **POST:**
@@ -57,6 +65,45 @@ Devuelve datos del usuario autenticado
 /api/logout
 Authorization: Bearer <token>
 Revoca todos los tokens del usuario autenticado 
+
+---
+
+### 1. Clonar el repositorio
+git clone https://github.com/TU-USUARIO/microservicio-autenticacion-usuarios.git
+cd microservicio-autenticacion-usuarios
+
+### 2. Instalar dependencias
+composer install
+
+### 3. Crear archivo .env
+cp .env.example .env
+
+Configurar MySQL:
+DB_DATABASE=usuarios
+DB_USERNAME=root
+DB_PASSWORD=
+
+### 4. Generar la APP_KEY
+php artisan key:generate
+
+### 5. Ejecutar migraciones
+php artisan migrate
+
+---
+
+### Endpoints principales (Laravel Sanctum)
+
+### Registro
+POST /api/register
+
+### Inicio de sesión
+POST /api/login
+
+### Cerrar sesión
+POST /api/logout
+
+### Obtener usuario autenticado
+GET /api/user
 
 ---
 
@@ -94,13 +141,14 @@ Logout → todos los tokens revocados correctamente
 
 ### Conclusiones
 
-Se implementó exitosamente un microservicio de autenticación seguro, escalable y completamente funcional.
+Este microservicio permite:
+-Crear usuarios
+-Generar tokens de acceso
+-Validar tokens en otros microservicios
+-Gestionar sesiones con Sanctum
+-Asignar y verificar roles (perfil)
 
-El sistema permite diferenciar roles mediante el campo perfil, base para futuros middlewares de autorización.
-
-Todos los endpoints están protegidos con el estándar Bearer Token y cumplen con buenas prácticas REST.
-
-El proyecto está versionado, documentado y listo para ser consumido por cualquier otro microservicio del ecosistema.Este desarrollo sienta las bases sólidas para la arquitectura completa de microservicios del sistema, garantizando seguridad, mantenibilidad y escalabilidad.
+Está diseñado para integrarse dentro de un sistema de microservicios, sirviendo únicamente como autoridad de autenticación.
 
 
 
